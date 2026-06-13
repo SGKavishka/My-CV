@@ -1091,9 +1091,16 @@ h1 {
 }
 
 @media (max-width: 640px) {
+  #home,
+  #profile,
+  #skills,
+  #cv {
+    scroll-margin-top: 92px;
+  }
+
   .hero-shell {
     min-height: auto;
-    padding: 84px 14px 78px;
+    padding: 96px 14px 78px;
   }
 
   .hero-panel {
@@ -1189,21 +1196,26 @@ h1 {
 
   .floating-nav {
     position: fixed;
-    z-index: 60;
-    left: 10px;
-    right: 10px;
-    top: max(10px, env(safe-area-inset-top));
+    z-index: 90;
+    left: 0;
+    right: 0;
+    top: 0;
     bottom: auto;
-    width: auto;
+    width: 100%;
     gap: 4px;
-    padding: 5px;
+    padding: calc(env(safe-area-inset-top) + 8px) 8px 8px;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0 0 8px 8px;
     overflow-x: auto;
-    justify-content: center;
+    justify-content: space-around;
+    background: rgba(16, 16, 16, 0.94);
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.36);
   }
 
   .floating-nav a {
-    min-width: 66px;
+    min-width: 64px;
     min-height: 36px;
     gap: 5px;
     font-size: 0.72rem;
