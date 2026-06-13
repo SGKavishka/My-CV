@@ -62,6 +62,8 @@ if (loadingScreen) {
   const closeLoader = () => {
     loadingScreen.classList.add("is-hidden");
     document.body.classList.remove("loading-active");
+    history.replaceState(null, "", "#home");
+    window.scrollTo({ top: 0, behavior: "auto" });
     window.setTimeout(() => {
       loadingScreen.hidden = true;
     }, 380);
