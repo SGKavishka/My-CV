@@ -1061,6 +1061,11 @@ h1 {
     flex-direction: column;
   }
 
+  .hero-topbar .btn {
+    width: auto;
+    align-self: flex-start;
+  }
+
   .hero-content {
     padding-top: 44px;
   }
@@ -1071,6 +1076,22 @@ h1 {
 
   h1 {
     font-size: 42px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .contact-grid a,
+  .contact-grid span {
+    align-items: flex-start;
+    line-height: 1.35;
+  }
+
+  .contact-grid .icon {
+    margin-top: 2px;
   }
 
   .section {
@@ -1134,10 +1155,6 @@ h1 {
   .floating-nav a {
     min-width: 78px;
     font-size: 0.77rem;
-  }
-
-  .btn {
-    width: 100%;
   }
 
   .action-row,
