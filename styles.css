@@ -82,6 +82,10 @@ button {
   font: inherit;
 }
 
+body.loading-active {
+  overflow: hidden;
+}
+
 .icon-sprite {
   position: absolute;
   width: 0;
@@ -99,6 +103,48 @@ button {
   stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at 72% 20%, rgba(246, 177, 37, 0.18), transparent 24rem),
+    linear-gradient(135deg, rgba(9, 9, 9, 0.98), rgba(18, 16, 14, 0.98));
+  transition: opacity 360ms ease, visibility 360ms ease;
+}
+
+.loading-screen::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+}
+
+.loading-screen.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-frame {
+  position: relative;
+  z-index: 1;
+}
+
+.loader-frame h2 {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(3rem, 13vw, 6rem);
+  line-height: 1;
+  font-weight: 950;
+  text-align: center;
 }
 
 .hero-shell {
@@ -1047,7 +1093,7 @@ h1 {
 @media (max-width: 640px) {
   .hero-shell {
     min-height: auto;
-    padding: 18px 14px 78px;
+    padding: 84px 14px 78px;
   }
 
   .hero-panel {
@@ -1067,7 +1113,7 @@ h1 {
   }
 
   .hero-content {
-    padding-top: 44px;
+    padding-top: 30px;
   }
 
   .portrait-card {
@@ -1143,18 +1189,24 @@ h1 {
 
   .floating-nav {
     position: fixed;
-    z-index: 20;
+    z-index: 60;
     left: 10px;
     right: 10px;
-    bottom: 10px;
+    top: max(10px, env(safe-area-inset-top));
+    bottom: auto;
     width: auto;
+    gap: 4px;
+    padding: 5px;
     overflow-x: auto;
-    justify-content: flex-start;
+    justify-content: center;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.36);
   }
 
   .floating-nav a {
-    min-width: 78px;
-    font-size: 0.77rem;
+    min-width: 66px;
+    min-height: 36px;
+    gap: 5px;
+    font-size: 0.72rem;
   }
 
   .action-row,
@@ -1167,7 +1219,7 @@ h1 {
   }
 
   .site-footer {
-    padding-bottom: 96px;
+    padding-bottom: 44px;
   }
 }
 

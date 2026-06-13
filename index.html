@@ -8,6 +8,7 @@
     <link rel="preload" as="image" href="assets/hero-workspace.png">
     <link rel="preload" as="image" href="assets/profile-main.png">
     <link rel="stylesheet" href="styles.css">
+    <noscript><style>.loading-screen{display:none}</style></noscript>
   </head>
   <body>
     <svg class="icon-sprite" aria-hidden="true" focusable="false">
@@ -70,6 +71,12 @@
         <path d="M6 12v5c3 2 9 2 12 0v-5"></path>
       </symbol>
     </svg>
+
+    <div class="loading-screen" id="loading-screen" role="dialog" aria-modal="true" aria-labelledby="loading-title">
+      <div class="loader-frame">
+        <h2 id="loading-title">gayan.</h2>
+      </div>
+    </div>
 
     <main>
       <section id="home" class="hero-shell" aria-labelledby="hero-title">
